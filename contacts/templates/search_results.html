@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+<body>
+
+<h2>Search Results :</h2>
+
+<form action = "" method = "post">
+    {% csrf_token %}
+    <table>
+        {{formSearch.as_table }}<br/>
+    </table>
+
+    <br/>
+    <input type="submit" value="Search">
+</form>
+
+{% if result_list %}
+    <table>
+        {% for id,row in result_list.items %}
+            <tr>
+                <td>
+                    <a href="https://www.google.com">
+                        {{ id }}
+                    </a>
+                </td>
+                <td>
+                    {% for val in row %}
+                        {{ val }}
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+
+</body>
+</html>
+
+
+
+{#{% if result_list %}#}
+{#    <table>#}
+{##}
+{#        {% for res in result_list %}#}
+{#            <tr>#}
+{#                <td>{{ res.id }}</td>#}
+{#                <td>{{ res.fname }}</td>#}
+{#                <td>{{ res.mname }}</td>#}
+{#                <td>{{ res.lname }}</td>#}
+{#                <td>{{ res.address }}</td>#}
+{#            #}
+{#            </tr>#}
+{#        {% endfor %}#}
+{#    </table>#}
+{#{% endif %}#}

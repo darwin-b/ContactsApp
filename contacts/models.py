@@ -1,8 +1,6 @@
 from django.db import models
 
 
-# Create your models here.
-
 class Contact(models.Model):
     # contact_id = models.AutoField(primary_key=True)
     fname = models.CharField(max_length=30)
@@ -11,6 +9,9 @@ class Contact(models.Model):
 
     class Meta:
         db_table = u"Contact"
+    #
+    # def __str__(self):
+    #     return self.fname+" "+
 
 
 class Address(models.Model):
@@ -23,18 +24,23 @@ class Address(models.Model):
     zip = models.IntegerField(null=True)
 
     class Meta:
-
         db_table = u"Address"
+
+    # def __str__(self):
+    #     return self.name
 
 class Phone(models.Model):
     # phone_id = models.AutoField(primary_key=True)
     contact_id = models.ForeignKey(Contact, on_delete=models.CASCADE,db_column="contact_id")
     phone_type = models.CharField(max_length=15,null=True)
     area_code = models.IntegerField(null=True)
-    number = models.IntegerField(null=True)
+    number = models.BigIntegerField(null=True)
 
     class Meta:
         db_table = u"Phone"
+
+    # def __str__(self):
+    #     return self.name
 
 class Date(models.Model):
     # date_id = models.AutoField(primary_key=True)
@@ -44,3 +50,7 @@ class Date(models.Model):
 
     class Meta:
         db_table = u"Date"
+
+    # def __str__(self):
+    #     return self.name
+

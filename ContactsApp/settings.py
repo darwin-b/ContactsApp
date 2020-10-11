@@ -26,7 +26,7 @@ SECRET_KEY = 'yfe%e6ph1r50kdfpm0hc+rwg7k*3o4zx25p3vw#26c_u4^2t5n'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+DATE_INPUT_FORMATS = ['%d-%m-%Y']
 
 # Application definition
 

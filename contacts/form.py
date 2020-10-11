@@ -15,7 +15,6 @@ class Cf_Contact(forms.ModelForm):
                   }
 
 
-
 class Cf_Address(forms.ModelForm):
     class Meta:
         model = Address
@@ -25,7 +24,6 @@ class Cf_Address(forms.ModelForm):
                   'city': 'City',
                   'state': 'State',
                   'zip': 'Zip'}
-        # help_texts = {'address_type': 'Eg: Home, Work.....'}
 
 
 class Cf_Phone(forms.ModelForm):
@@ -36,8 +34,6 @@ class Cf_Phone(forms.ModelForm):
                   'number': 'Number',
                   'area_code': 'Area Code',
                   }
-        # help_texts = {'address_type': 'Eg: Home, Work.....'}
-
 
 class Cf_Date(forms.ModelForm):
     class Meta:
@@ -46,7 +42,7 @@ class Cf_Date(forms.ModelForm):
         labels = {'date_type': 'Date Type',
                   'date': 'Date'
                   }
-        # help_texts = {'address_type': 'Eg: Home, Work.....'}
+
 
 class ContactForm(forms.Form):
     fname = forms.CharField(max_length=30,label="First Name")
@@ -66,22 +62,6 @@ class ContactForm(forms.Form):
     date_type = forms.CharField(max_length=25,required=False,label="Date Type")
     date = forms.DateField(required=False,label="Date")
 
-    # fields = ['fname','address_type', 'address', 'city', 'state', 'zip']
-    # labels = {'fname' : 'First Name',
-    #           'mname' : 'Middle Name',
-    #           'lname' : 'Last Name',
-    #
-    #           'address_type': 'Address Type',
-    #           'address': 'Address',
-    #           'city': 'City',
-    #           'state': 'State',
-    #           'zip': 'Zip',
-    #
-    #           'phone_type' : 'Phone Type',
-    #           'area_code': 'Area Code',
-    #           'number': 'Number',
-    #
-    #           'date_type': 'Date Type',
-    #           'Date' : 'Date'
-    #           }
 
+class Search(forms.Form):
+    search_word = forms.CharField(max_length=25,required=False,label="Search")
