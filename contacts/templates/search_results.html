@@ -20,41 +20,50 @@
 
 {% if result_list %}
     <table>
+        <tr>
+            <td>Id</td>
+            <td>First_Name</td>
+            <td>Middle_Name</td>
+            <td>Last_Name</td>
+            <td>Address_type</td>
+            <td>Address</td>
+            <td>City</td>
+            <td>State</td>
+            <td>Zip</td>
+            <td>Phone_Type</td>
+            <td>Area_Code</td>
+            <td>Number</td>
+            <td>Date_Type</td>
+            <td>Date</td>
+        </tr>
         {% for id,row in result_list.items %}
-            <tr>
+        <tr>
+
+            {% for i,link in update_links.items %}
+                {% if id == i %}
                 <td>
-                    <a href="https://www.google.com">
+                    <a href={{ link }}>
                         {{ id }}
                     </a>
+                    {{ break }}
                 </td>
-                <td>
-                    {% for val in row %}
-                        {{ val }}
-                    {% endfor %}
-                </td>
-            </tr>
+                {% endif %}
+            {% endfor %}
+
+            {% for val in row %}
+            <td>
+                {{ val }}
+            </td>
+            {% endfor %}
+        </tr>
         {% endfor %}
     </table>
 {% endif %}
 
+<br/>
+<a href="http://localhost:8000/">Home (Add Contact)</a> <br/>
 
 </body>
 </html>
 
 
-
-{#{% if result_list %}#}
-{#    <table>#}
-{##}
-{#        {% for res in result_list %}#}
-{#            <tr>#}
-{#                <td>{{ res.id }}</td>#}
-{#                <td>{{ res.fname }}</td>#}
-{#                <td>{{ res.mname }}</td>#}
-{#                <td>{{ res.lname }}</td>#}
-{#                <td>{{ res.address }}</td>#}
-{#            #}
-{#            </tr>#}
-{#        {% endfor %}#}
-{#    </table>#}
-{#{% endif %}#}

@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <title>Contact App - Add</title>
+{#  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>#}
+  <title>Contact App - Update</title>
 </head>
-<h1>Add Contact</h1>
+<h1>Update Contact</h1>
 
 <body>
 
@@ -14,20 +14,19 @@
     <table>
         {{form.as_table }}
     </table>
-
     <br/>
-    <input type="submit" value="Add Contact">
+    <input type="submit" value="Update Contact">
+    <input type="submit" value="Delete Contact">
 </form>
-    <br/>
+<br/>
     {% if messages %}
         {% for message in messages %}
             {{ message }}<br/>
         {% endfor %}
     {% endif %}
-
-
 <br/>
 
+<a href="http://localhost:8000/">Add Contact</a> <br/>
 <a href="http://localhost:8000/search/">Search</a>
 
 
