@@ -21,6 +21,7 @@
 {% if result_list %}
     <table>
         <tr>
+            <td>Delete</td>
             <td>Id</td>
             <td>First_Name</td>
             <td>Middle_Name</td>
@@ -39,16 +40,31 @@
         {% for id,row in result_list.items %}
         <tr>
 
-            {% for i,link in update_links.items %}
-                {% if id == i %}
-                <td>
-                    <a href={{ link }}>
-                        {{ id }}
-                    </a>
-                    {{ break }}
-                </td>
-                {% endif %}
-            {% endfor %}
+{#            {% for i,link in update_links.items %}#}
+{#                #}
+{#                {% if id == i %}#}
+{#                <td>#}
+{#                    <a href={{ link }}>#}
+{#                        {{ id }}#}
+{#                    </a>#}
+{#                    {{ break }}#}
+{#                </td>#}
+{#                {% endif %}#}
+{#            {% endfor %}#}
+
+
+            <td>
+                <a href={{ delete_link}}{{ id }}>
+                     {{ "Delete" }}
+                </a>
+            </td>
+
+            <td>
+                <a href={{ base_link }}{{ id }}>
+                     {{ id }}
+                </a>
+            </td>
+
 
             {% for val in row %}
             <td>
@@ -61,6 +77,13 @@
 {% endif %}
 
 <br/>
+    {% if messages %}
+        {% for message in messages %}
+            {{ message }}<br/>
+        {% endfor %}
+    {% endif %}
+<br/>
+
 <a href="http://localhost:8000/">Home (Add Contact)</a> <br/>
 
 </body>
