@@ -223,22 +223,24 @@ def update(request):
         request.GET['lname']  = contact.lname
         contact_id=contact.id
 
-        address = Address.objects.get(contact_id=contact_id)
-        request.GET['address_type'] = address.address_type
-        request.GET['address']  = address.address
-        request.GET['city']  = address.city
-        request.GET['state'] = address.state
-        request.GET['zip'] = address.zip
+        try:
+            address = Address.objects.get(contact_id=contact_id)
+            request.GET['address_type'] = address.address_type
+            request.GET['address']  = address.address
+            request.GET['city']  = address.city
+            request.GET['state'] = address.state
+            request.GET['zip'] = address.zip
 
+            phone = Phone.objects.get(contact_id=contact_id)
+            request.GET['phone_type'] = phone.phone_type
+            request.GET['area_code']  = phone.area_code
+            request.GET['number']  = phone.number
 
-        phone = Phone.objects.get(contact_id=contact_id)
-        request.GET['phone_type'] = phone.phone_type
-        request.GET['area_code']  = phone.area_code
-        request.GET['number']  = phone.number
-
-        date = Date.objects.get(contact_id=contact_id)
-        request.GET['date_type'] = date.date_type
-        request.GET['date']  = date.date
+            date = Date.objects.get(contact_id=contact_id)
+            request.GET['date_type'] = date.date_type
+            request.GET['date']  = date.date
+        except:
+            print("Can be empty fields in other tables")
 
         context['form'] = UppdateForm(request.GET)
         return render(request,'update.html',context)
