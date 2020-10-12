@@ -332,6 +332,8 @@ def add_csv(file_path):
 def delete(id):
 
     # ---------------------write deleting database entry given ID -------------------#
+    obj = Contact.objects.get(pk=id)
+    obj.delete()
     print(id)
 
 
