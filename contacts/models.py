@@ -9,9 +9,6 @@ class Contact(models.Model):
 
     class Meta:
         db_table = u"Contact"
-    #
-    # def __str__(self):
-    #     return self.fname+" "+
 
 
 class Address(models.Model):
@@ -26,8 +23,6 @@ class Address(models.Model):
     class Meta:
         db_table = u"Address"
 
-    # def __str__(self):
-    #     return self.name
 
 class Phone(models.Model):
     # phone_id = models.AutoField(primary_key=True)
@@ -39,8 +34,6 @@ class Phone(models.Model):
     class Meta:
         db_table = u"Phone"
 
-    # def __str__(self):
-    #     return self.name
 
 class Date(models.Model):
     # date_id = models.AutoField(primary_key=True)
@@ -50,7 +43,3 @@ class Date(models.Model):
 
     class Meta:
         db_table = u"Date"
-
-    # def __str__(self):
-    #     return self.name
-
